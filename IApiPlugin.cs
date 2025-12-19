@@ -8,7 +8,7 @@ namespace sharwapi.Contracts.Core
 {
     public interface IApiPlugin
     {
-        //定义插件名称(作为插件URL的Prefix)
+        //定义插件名称
         string Name { get; }
         //定义插件版本
         string Version { get; }
