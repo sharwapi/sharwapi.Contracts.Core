@@ -163,3 +163,13 @@ whether future versions of the GNU Lesser General Public License shall
 apply, that proxy's public statement of acceptance of any version is
 permanent authorization for you to choose that version for the
 Library.
+
+                  SharwAPI Plugin Exception
+
+  As a special exception to the GNU Lesser General Public License, 
+the copyright holders of this library give you permission to combine 
+this library with independent modules to produce an executable, 
+regardless of the license terms of these independent modules, and 
+to copy and distribute the resulting executable under terms of your 
+choice, provided that you also meet, for each linked independent module, 
+the terms and conditions of the license of that module.
