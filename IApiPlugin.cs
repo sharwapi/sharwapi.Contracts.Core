@@ -14,12 +14,19 @@ namespace sharwapi.Contracts.Core
         string Version { get; }
         //定义插件显示名称
         string DisplayName { get; }
+        //定义自动路由前缀的开关
+        bool UseAutoRoutePrefix 
+        { 
+            get => false;
+        }
         //定义插件注册服务方法
         void RegisterServices(IServiceCollection services, IConfiguration configuration);
         //定义插件中间件配置方法
         void Configure(WebApplication app);
         //定义插件路由注册方法
         void RegisterRoutes(IEndpointRouteBuilder app, IConfiguration configuration);
+        //定义插件提供的默认配置对象
+        object? DefaultConfig => null;
         //定义插件用于被管理的端点注册方法
         void RegisterManagementEndpoints(IEndpointRouteBuilder managementGroup)
         {
