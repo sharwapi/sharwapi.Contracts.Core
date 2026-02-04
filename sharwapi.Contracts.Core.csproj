@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
 
     <!-- Nuget Package -->
-    <Version>0.2.0</Version>
+    <Version>0.2.1</Version>
     <PackageId>$(AssemblyName)</PackageId>
     <PackageProjectUrl>https://github.com/sharwapi/sharwapi.Contracts.Core</PackageProjectUrl>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
@@ -28,5 +28,6 @@
 	<ItemGroup>
     <None Include="LICENSE" Pack="true" PackagePath="" />
 	  <None Include="README.md" Pack="true" PackagePath="\" />
+    <None Include="Locales\zh-CN\sharwapi.Contracts.Core.xml" Pack="true" PackagePath="lib\$(TargetFramework)\zh-CN" />
 	</ItemGroup>
 </Project>
