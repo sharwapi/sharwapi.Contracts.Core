@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
 
     <!-- Nuget Package -->
-    <Version>0.2.1</Version>
+    <Version>0.2.2</Version>
     <PackageId>$(AssemblyName)</PackageId>
     <PackageProjectUrl>https://github.com/sharwapi/sharwapi.Contracts.Core</PackageProjectUrl>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
