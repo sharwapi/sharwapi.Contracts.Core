@@ -24,6 +24,12 @@ namespace sharwapi.Contracts.Core
         /// </summary>
         string DisplayName { get; }
         /// <summary>
+        /// Gets the plugin dependencies.
+        /// <para>Key: The unique identifier name of the dependent plugin.</para>
+        /// <para>Value: The version requirement (e.g., "1.0.0", "[1.0, 2.0)", "*").</para>
+        /// </summary>
+        IReadOnlyDictionary<string, string> Dependencies => new Dictionary<string, string>();
+        /// <summary>
         /// Gets a value indicating whether to enable automatic route prefixing.
         /// <para>Defaults to <c>false</c>, but enabling it is recommended.</para>
         /// </summary>
