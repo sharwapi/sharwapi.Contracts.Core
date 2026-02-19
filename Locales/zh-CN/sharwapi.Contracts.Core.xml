@@ -30,8 +30,15 @@
             <para>键：依赖插件的唯一标识名称。</para>
             <para>值：版本要求（例如 "1.0.0", "[1.0, 2.0)", "*"）。</para>
             </summary>
-        </member>
-        <member name="P:sharwapi.Contracts.Core.IApiPlugin.UseAutoRoutePrefix">
+        </member>        <member name="M:sharwapi.Contracts.Core.IApiPlugin.ValidateDependency(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})">
+            <summary>
+            基于已加载的插件执行高级依赖验证或初始化逻辑。
+            <para>如果插件可以加载，则返回 <c>true</c>；否则返回 <c>false</c>。</para>
+            <para>此方法在基本的依赖项检查通过后调用。</para>
+            </summary>
+            <param name="loadedPluginVersions">所有当前已加载插件及其版本的字典。</param>
+            <returns>此插件是否应有效启动。</returns>
+        </member>        <member name="P:sharwapi.Contracts.Core.IApiPlugin.UseAutoRoutePrefix">
             <summary>
             是否启用自动路由前缀。
             <para>默认为 false，推荐开启。</para>

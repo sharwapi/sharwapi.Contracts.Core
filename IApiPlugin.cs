@@ -29,6 +29,16 @@ namespace sharwapi.Contracts.Core
         /// <para>Value: The version requirement (e.g., "1.0.0", "[1.0, 2.0)", "*").</para>
         /// </summary>
         IReadOnlyDictionary<string, string> Dependencies => new Dictionary<string, string>();
+
+        /// <summary>
+        /// Performs advanced dependency validation or initialization logic based on loaded plugins.
+        /// <para>Return <c>true</c> if the plugin can be loaded; otherwise, <c>false</c>.</para>
+        /// <para>This is called after basic dependency checks pass.</para>
+        /// </summary>
+        /// <param name="loadedPluginVersions">A dictionary of all currently loaded plugins and their versions.</param>
+        /// <returns>Whether this plugin should effectively start.</returns>
+        bool ValidateDependency(IReadOnlyDictionary<string, string> loadedPluginVersions) => true;
+
         /// <summary>
         /// Gets a value indicating whether to enable automatic route prefixing.
         /// <para>Defaults to <c>false</c>, but enabling it is recommended.</para>
