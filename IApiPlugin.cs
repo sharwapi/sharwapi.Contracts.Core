@@ -35,7 +35,7 @@ namespace sharwapi.Contracts.Core
         /// <para>Return <c>true</c> if the plugin can be loaded; otherwise, <c>false</c>.</para>
         /// <para>This is called after basic dependency checks pass.</para>
         /// </summary>
-        /// <param name="loadedPluginVersions">A dictionary of all currently loaded plugins and their versions.</param>
+        /// <param name="loadedPluginVersions">A dictionary of plugins (name → version) that have passed the basic declarative dependency check (Stage 1). This is a subset of all loaded plugins.</param>
         /// <returns>Whether this plugin should effectively start.</returns>
         bool ValidateDependency(IReadOnlyDictionary<string, string> loadedPluginVersions) => true;
 
@@ -51,7 +51,7 @@ namespace sharwapi.Contracts.Core
         /// Registers the plugin's services into the dependency injection container.
         /// </summary>
         /// <param name="services">The service collection to add services to.</param>
-        /// <param name="configuration">The application configuration properties.</param>
+        /// <param name="configuration">The plugin-specific configuration, loaded from <c>config/{PluginName}.json</c>.</param>
         void RegisterServices(IServiceCollection services, IConfiguration configuration);
         /// <summary>
         /// Configures the HTTP request pipeline (middleware) for the plugin.
