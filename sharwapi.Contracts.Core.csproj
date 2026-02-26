@@ -1,12 +1,33 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+
+    <!-- Nuget Package -->
+    <Version>0.2.4</Version>
+    <PackageId>$(AssemblyName)</PackageId>
+    <PackageProjectUrl>https://github.com/sharwapi/sharwapi.Contracts.Core</PackageProjectUrl>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Authors>SharwAPI</Authors>
+    <Copyright>Copyright © 2026 SharwAPI</Copyright>
+    <Description>Defines core interfaces for SharwAPI plugins. Licensed under LGPL-3.0 with an exemption clause allowing closed-source plugins.</Description>
+    <Product>SharwAPI Contracts</Product>
+    <PackageLicenseExpression>LGPL-3.0-or-later</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
+    <Title>SharwAPI Contracts</Title>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
 
 	<ItemGroup>
 		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
+
+	<ItemGroup>
+    <None Include="LICENSE" Pack="true" PackagePath="" />
+	  <None Include="README.md" Pack="true" PackagePath="\" />
+    <None Include="Locales\zh-CN\sharwapi.Contracts.Core.xml" Pack="true" PackagePath="lib\$(TargetFramework)\zh-CN" />
 	</ItemGroup>
 </Project>
