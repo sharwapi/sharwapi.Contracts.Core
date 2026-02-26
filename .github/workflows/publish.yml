@@ -20,6 +20,9 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore sharwapi.Contracts.Core.csproj
 
+      - name: Build
+        run: dotnet build sharwapi.Contracts.Core.csproj --configuration Release --no-restore
+
       - name: Pack
         run: dotnet pack sharwapi.Contracts.Core.csproj --configuration Release --no-restore --output ./nupkgs
 
@@ -33,6 +36,8 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     environment: nuget-release
+    permissions:
+      contents: write
 
     steps:
       - name: Download nupkg artifact
@@ -45,7 +50,8 @@ jobs:
         run: |
           dotnet nuget push ./nupkgs/*.nupkg \
             --source "${{ secrets.NUGET_SOURCE }}" \
-            --api-key "${{ secrets.NUGET_API_KEY }}"
+            --api-key "${{ secrets.NUGET_API_KEY }}" \
+            --skip-duplicate
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
