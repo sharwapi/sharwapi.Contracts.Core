@@ -64,6 +64,28 @@
             <param name="app">路由构建器</param>
             <param name="configuration">配置对象</param>
         </member>
+        <member name="P:sharwapi.Contracts.Core.IApiPlugin.DataDirectory">
+            <summary>
+            插件专属数据目录的完整路径。
+            <para>默认为 <c>{BaseDir}/data/{Name}</c>。</para>
+            <para>可重写此属性以自定义数据目录位置。</para>
+            </summary>
+        </member>
+        <member name="M:sharwapi.Contracts.Core.IApiPlugin.GetDataPath(System.String)">
+            <summary>
+            获取插件专属数据目录下某文件的完整路径。
+            <para>
+            若 <paramref name="relativePath"/> 为相对路径，则以 <see cref="P:sharwapi.Contracts.Core.IApiPlugin.DataDirectory"/> 为根进行拼接，
+            结果为 <c>{DataDirectory}/{relativePath}</c>。
+            </para>
+            <para>
+            若 <paramref name="relativePath"/> 为绝对路径，则直接返回该路径，忽略 <see cref="P:sharwapi.Contracts.Core.IApiPlugin.DataDirectory"/>。
+            这使得插件可以通过在配置文件中填写绝对路径，将文件存储到任意自定义位置（例如挂载的 HSM 路径）。
+            </para>
+            </summary>
+            <param name="relativePath">相对于数据目录的路径（例如 <c>"keys/private.pem"</c>），或用于完全覆盖数据目录的绝对路径。</param>
+            <returns>解析后的绝对路径。</returns>
+        </member>
         <member name="P:sharwapi.Contracts.Core.IApiPlugin.DefaultConfig">
             <summary>
             插件提供的默认配置对象。
