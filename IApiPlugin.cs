@@ -65,6 +65,27 @@ namespace sharwapi.Contracts.Core
         /// <param name="configuration">The application configuration properties.</param>
         void RegisterRoutes(IEndpointRouteBuilder app, IConfiguration configuration);
         /// <summary>
+        /// Gets the plugin-specific data directory path.
+        /// <para>Defaults to <c>{BaseDir}/data/{Name}</c>.</para>
+        /// <para>Override this property to customize the data directory location.</para>
+        /// </summary>
+        string DataDirectory => Path.Combine(AppContext.BaseDirectory, "data", Name);
+        /// <summary>
+        /// Gets the full path for a file within the plugin's data directory.
+        /// <para>
+        /// If <paramref name="relativePath"/> is a relative path, it is resolved against <see cref="DataDirectory"/>,
+        /// resulting in <c>{DataDirectory}/{relativePath}</c>.
+        /// </para>
+        /// <para>
+        /// If <paramref name="relativePath"/> is an absolute path, it is returned as-is,
+        /// allowing plugins to store files at a custom location (e.g., a mounted HSM path)
+        /// by setting an absolute path in their configuration file.
+        /// </para>
+        /// </summary>
+        /// <param name="relativePath">The relative path within the plugin's data directory (e.g., <c>"keys/private.pem"</c>), or an absolute path to override the data directory entirely.</param>
+        /// <returns>The resolved absolute path.</returns>
+        string GetDataPath(string relativePath) => Path.Combine(DataDirectory, relativePath);
+        /// <summary>
         /// Gets the default configuration object provided by the plugin.
         /// </summary>
         object? DefaultConfig => null;
