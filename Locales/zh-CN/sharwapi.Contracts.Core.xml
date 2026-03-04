@@ -91,6 +91,15 @@
             插件提供的默认配置对象。
             </summary>
         </member>
+        <member name="M:sharwapi.Contracts.Core.IApiPlugin.OnRoutePrefixResolved(System.String,System.Boolean)">
+            <summary>
+            在插件的路由前缀解析完成后调用。
+            <para>仅当 <see cref="P:sharwapi.Contracts.Core.IApiPlugin.UseAutoRoutePrefix"/> 为 <c>true</c> 时触发。</para>
+            <para>可重写此方法以在启动阶段感知路由前缀的最终值。</para>
+            </summary>
+            <param name="resolvedPrefix">最终生效的路由前缀（不含前导斜杠，例如 <c>myplugin</c>）。</param>
+            <param name="isOverridden">前缀是否来自 <c>RouteOverride</c> 配置节覆盖，而非插件默认的 <c>Name</c>。</param>
+        </member>
         <member name="M:sharwapi.Contracts.Core.IApiPlugin.RegisterManagementEndpoints(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder)">
             <summary>
             注册用于插件管理的 API 端点。
