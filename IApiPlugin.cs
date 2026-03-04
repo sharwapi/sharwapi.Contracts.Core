@@ -90,6 +90,14 @@ namespace sharwapi.Contracts.Core
         /// </summary>
         object? DefaultConfig => null;
         /// <summary>
+        /// Called after the route prefix for this plugin has been resolved.
+        /// <para>Only invoked when <see cref="UseAutoRoutePrefix"/> is <c>true</c>.</para>
+        /// <para>Override this method to react to route prefix changes at startup.</para>
+        /// </summary>
+        /// <param name="resolvedPrefix">The final route prefix that will be applied (without leading slash).</param>
+        /// <param name="isOverridden">Whether the prefix was overridden by a <c>RouteOverride</c> configuration entry rather than using the plugin's default name.</param>
+        void OnRoutePrefixResolved(string resolvedPrefix, bool isOverridden) { }
+        /// <summary>
         /// Registers endpoints used for plugin management.
         /// <para><b>Note:</b> This is in the experimental prototyping stage and is not recommended for use.</para>
         /// </summary>
